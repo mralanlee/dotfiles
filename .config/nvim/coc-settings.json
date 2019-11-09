@@ -1,0 +1,38 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "graphql",
+    "html",
+    "javascript",
+    "javascript.jsx",
+    "python",
+    "json",
+    "less",
+    "Markdown",
+    "scss",
+    "yaml"
+  ],
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    },
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    },
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    }
+  },
+  "snippets.extends": {
+    "cpp": ["c"],
+    "javascriptreact": ["javascript"]
+  },
+  "javascript.suggestionActions.enabled": false
+}
