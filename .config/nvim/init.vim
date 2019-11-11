@@ -2,6 +2,11 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
+if empty(glob("~/.local/share/nvim/site/autoload/plug.vim"))
+  silent! execute '!curl --create-dirs -fsSLo ~/.local/share/nvim/site/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * silent! PlugInstall
+endif
+
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/dist/*
 
 let g:python_host_prog=expand('$PYENV_ROOT/versions/$PYENV2_NAME/bin/python')
