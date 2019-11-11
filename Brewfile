@@ -1,3 +1,15 @@
+# macOS store
+mas 'Slack', id: 803453959
+mas 'flycut-clipboard-manager', id: 442160987
+mas 'Amphetamine', id: 937984704
+mas 'Coin Tick', id: 1141688067
+
+# Cask
+cask 'virtualbox'
+cask 'minikube'
+cask 'alacritty'
+cask 'font-fira-code'
+
 tap "aws/tap"
 tap "caskroom/cask"
 tap "go-delve/delve"
