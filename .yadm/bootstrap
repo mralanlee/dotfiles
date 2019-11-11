@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+SYSTEM_TYPE=$(uname -s)
+SSH_REPO_URL="git@github.com:mralanlee/dotfiles.git"
+
+cd "$HOME"
+echo "Init submodules"
+yadm submodule update --recursive --init
+
+if [ "$system_type" = "Darwin" ]; then
+
+  # install homebrew if it's missing
+  if ! command -v brew >/dev/null 2>&1; then
+    echo "Installing homebrew"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+
+  if [ -f "$HOME/Brewfile" ]; then
+    echo "Updating homebrew bundle"
+    brew bundle --global
+  fi
+
+  if ! command -v mas >/dev/null 2>&1; then
+    echo ">>> Wipe all default doc icons.."
+    defaults write com.apple.dock persistent-apps -array ""
+    echo ">>> Installing mas.."
+    brew install mas
+    echo ">>> Set zsh as default shell.."
+    chsh -s /bin/zsh
+  fi
+
+  # configure iterm
+  if [ -d "$HOME/.iterm2" ]; then
+    echo "Setting iTerm preference folder"
+    defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.iterm2"
+  fi
+fi
+
+# Install VimPlug
+echo "Installing VimPlug for Neovim"
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+echo "Disable default preess and hold behavior"
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+echo "Set Initial Key Repeat"
+defaults write -g InitialKeyRepeat -int 12
+
+echo "Set key repeat"
+defaults read -g KeyRepeat 1
+
+echo "Show hidden files by default"
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+echo "Disable auto-correct"
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+echo "Set Mode to Dark"
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark" 
+
+if command -v nvim >/dev/null 2>&1; then
+  echo "Bootstraping Neovim"
+  nvim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+fi
+
+echo "Done!"
