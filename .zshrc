@@ -8,7 +8,7 @@ export ZSHALIAS=$HOME/.config/zsh/alias.zsh
 export ZSHPATH=$HOME/.config/zsh/path.zsh
 export ZSHENV=$ZSH_CUSTOM/.zshenv
 
-source $ZSH_CUSTOM/.zshenv
+# source $ZSH_CUSTOM/.zshenv
 source $ZSHPATH
 source $ZSHFUNCTIONS
 source $ZSHALIAS
