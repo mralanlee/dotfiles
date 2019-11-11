@@ -41,7 +41,7 @@ echo "Installing VimPlug for Neovim"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-echo "Disable default preess and hold behavior"
+echo "Disable default press and hold behavior"
 defaults write -g ApplePressAndHoldEnabled -bool false
 
 echo "Set Initial Key Repeat"
@@ -50,11 +50,20 @@ defaults write -g InitialKeyRepeat -int 12
 echo "Set key repeat"
 defaults read -g KeyRepeat 1
 
+echo "Automatically quit printer app once the print jobs complete"
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
 echo "Show hidden files by default"
 defaults write com.apple.finder AppleShowAllFiles -bool true
 
 echo "Disable auto-correct"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+echo "Disable smart quotes as they’re annoying when typing code"
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+echo "Disable smart dashes as they’re annoying when typing code"
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 echo "Set Mode to Dark"
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark" 
