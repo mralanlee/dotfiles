@@ -1,15 +1,3 @@
-# macOS store
-mas 'Slack', id: 803453959
-mas 'flycut-clipboard-manager', id: 442160987
-mas 'Amphetamine', id: 937984704
-mas 'Coin Tick', id: 1141688067
-
-# Cask
-cask 'virtualbox'
-cask 'minikube'
-cask 'alacritty'
-cask 'font-fira-code'
-
 tap "aws/tap"
 tap "caskroom/cask"
 tap "go-delve/delve"
@@ -43,6 +31,7 @@ brew "hyperfine"
 brew "jq"
 brew "kubernetes-cli"
 brew "lolcat"
+brew "mas"
 brew "minikube"
 brew "mysql"
 brew "neovim"
@@ -88,3 +77,10 @@ cask "java"
 cask "minikube"
 cask "therm"
 cask "virtualbox"
+mas "Amphetamine", id: 937984704
+mas "Brightness Slider", id: 456624497
+mas "Coin Tick", id: 1141688067
+mas "Flycut", id: 442160987
+mas "Magnet", id: 441258766
+mas "Medis", id: 1063631769
+mas "Xcode", id: 497799835
