@@ -48,7 +48,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}  " intellisense
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }  " intellisense
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 " Plug 'Valloric/MatchTagAlways'
@@ -115,6 +115,8 @@ set tabstop=2
 set conceallevel=0
 set undolevels=100
 set nowrap
+
+set undofile
 set undodir=~/.config/nvim/undodir " Maintain undo history between sessions
 
 "ale
@@ -155,6 +157,16 @@ let g:ale_fixers={
 
 " floaterm
 let g:floaterm_position='center'
+
+" coc
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-eslint',
+  \ 'coc-tsserver',
+  \ 'coc-prettier',
+  \ 'coc-json',
+  \ ]
 
 " netrw
 let g:netrw_liststyle=3
@@ -244,6 +256,16 @@ command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 " Use `:Format` for format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
 if executable('./node_modules/.bin/eslint')
   let g:neomake_javascript_eslint_exe='./node_modules/.bin/eslint'
 endif
@@ -263,10 +285,6 @@ let g:neomake_yaml_enabled_makers=['yamllint']
 au! BufWritePost * Neomake
 
 au FileType make setlocal noexpandtab sw=4 ts=4 sts=4
-
-command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
-" Use `:Format` for format current buffer
-command! -nargs=0 Format :call CocAction('format')
 
 "CarbonNow
 let g:carbon_now_sh_browser = 'google-chrome'
