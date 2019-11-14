@@ -59,10 +59,10 @@ defaults write com.apple.finder AppleShowAllFiles -bool true
 echo "Disable auto-correct"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-echo "Disable smart quotes as they’re annoying when typing code"
+echo "Disable smart quotes"
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
-echo "Disable smart dashes as they’re annoying when typing code"
+echo "Disable smart dashes"
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 echo "Set Mode to Dark"
