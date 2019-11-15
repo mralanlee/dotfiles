@@ -33,7 +33,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'Yggdroot/indentLine'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'eval `fnm env` & cd app & npm install' }
 Plug 'voldikss/vim-floaterm'
-
+Plug 'tpope/vim-vinegar'
 " code
 Plug 'fatih/vim-go'
 Plug 'sebdah/vim-delve'
@@ -62,18 +62,20 @@ Plug 'andymass/vim-matchup'
 Plug 'kristijanhusak/vim-carbon-now-sh'
 
 " theme
-" Plug 'phanviet/vim-monokai-pro'
+Plug 'phanviet/vim-monokai-pro'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'jaredgorski/SpaceCamp'
+Plug 'jaredgorski/SpaceCamp'
 Plug 'mhartington/oceanic-next'
 " Plug 'chriskempson/base16-vim'
-
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 set background=dark
-colorscheme OceanicNext
-"colorscheme spacecamp
+" colorscheme OceanicNext
+" colorscheme spacecamp
+" colorscheme monokai_pro
+colorscheme gruvbox
 filetype plugin indent on
 syntax enable
 highlight Pmenu guibg=#161616
