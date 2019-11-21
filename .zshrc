@@ -20,9 +20,7 @@ export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.ansible_vault.txt
 export GO111MODULE=auto
 export GOPROXY="direct"
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/alalee/.oh-my-zsh"
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
+export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="hyperzsh"
 
@@ -79,7 +77,7 @@ source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /Users/alalee/go/bin/terraform terraform
+complete -o nospace -C $HOME/go/bin/terraform terraform
 
 # fnm
 export PATH=$HOME/.fnm:$PATH
