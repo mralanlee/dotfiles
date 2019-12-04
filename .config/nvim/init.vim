@@ -34,6 +34,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'eval `fnm env` & cd app & npm install' }
 Plug 'voldikss/vim-floaterm'
 Plug 'tpope/vim-vinegar'
+
 " code
 Plug 'fatih/vim-go'
 Plug 'sebdah/vim-delve'
@@ -51,6 +52,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }  " intellisense
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'jparise/vim-graphql'
 " Plug 'Valloric/MatchTagAlways'
 Plug 'cohama/lexima.vim'
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
@@ -72,10 +74,10 @@ Plug 'morhetz/gruvbox'
 call plug#end()
 
 set background=dark
-" colorscheme OceanicNext
+colorscheme OceanicNext
 " colorscheme spacecamp
 " colorscheme monokai_pro
-colorscheme gruvbox
+" colorscheme gruvbox
 filetype plugin indent on
 syntax enable
 highlight Pmenu guibg=#161616
@@ -179,6 +181,49 @@ let g:netrw_winsize=15
 let g:fzf_buffers_jump=1
 let g:fzf_history_dir='~/.local/share/fzf-history'
 let g:fzf_tags_command='fd | ctags --links=no -L-'
+
+let $FZF_PREVIEW_COMMAND='bat --color=always {}'
+let $FZF_DEFAULT_OPTS='--layout=reverse'
+let $BAT_THEME='Sublime Snazzy'
+
+command! -bang -nargs=? -complete=dir GFiles
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': '--prompt ""'}, 'right:70%'), <bang>0)
+
+command! -bang -nargs=* PRg
+  \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>),
+  \ 1,
+  \ fzf#vim#with_preview({'dir': system('git rev-parse --show-toplevel 2> /dev/null')[:-2]}),
+  \ <bang>0)
+
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep('rg --column --line-number --no-heading --smart-case --color=always '.shellescape(<q-args>),
+  \ 1,
+  \ fzf#vim#with_preview(),
+  \ <bang>0)
+
+" fzf floating window
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+  let vertical = 1
+  let height = &lines - 3
+  let width = float2nr(&columns - (&columns * 2 / 10))
+  let col = float2nr((&columns - width) / 2)
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': vertical,
+        \ 'col': col,
+        \ 'width': width,
+        \ 'height': height,
+        \ 'style': 'minimal'
+        \ }
+
+  let win = nvim_open_win(buf, v:true, opts)
+  call setwinvar(win, '&relativenumber', 0)
+endfunction
 
 "gitgutter
 let g:gitgutter_enabled=0
