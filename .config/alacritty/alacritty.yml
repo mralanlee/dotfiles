@@ -4,13 +4,13 @@
 # environment variables. Some entries may override variables
 # set by alacritty itself.
 #env:
-  # TERM variable
-  #
-  # This value is used to set the `$TERM` environment variable for
-  # each instance of Alacritty. If it is not present, alacritty will
-  # check the local terminfo database and use `alacritty` if it is
-  # available, otherwise `xterm-256color` is used.
-  #TERM: xterm-256color
+# TERM variable
+#
+# This value is used to set the `$TERM` environment variable for
+# each instance of Alacritty. If it is not present, alacritty will
+# check the local terminfo database and use `alacritty` if it is
+# available, otherwise `xterm-256color` is used.
+#TERM: xterm-256color
 
 env:
   TERM: xterm-256color
@@ -47,7 +47,8 @@ window:
   decorations: full
 
   # When true, alacritty starts maximized.
-  start_maximized: false
+  # start_maximized: false
+  startup_mode: Windowed
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -65,7 +66,6 @@ scrolling:
   # to allow mouse scrolling for applications like `man`.
   #
   # Specifying `0` will disable faux scrolling.
-  faux_multiplier: 3
 
   # Scroll to the bottom when new text is written to the terminal.
   auto_scroll: false
@@ -91,38 +91,38 @@ font:
     family: Fira Code
   # Normal (roman) font face
   #normal:
-    # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux) monospace
-    #   - (Windows) Consolas
-    #family: monospace
+  # Font family
+  #
+  # Default:
+  #   - (macOS) Menlo
+  #   - (Linux) monospace
+  #   - (Windows) Consolas
+  #family: monospace
 
-    # The `style` can be specified to pick a specific face.
-    #style: Regular
+  # The `style` can be specified to pick a specific face.
+  #style: Regular
 
   # Bold font face
   #bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
+  # Font family
+  #
+  # If the bold family is not specified, it will fall back to the
+  # value specified for the normal font.
+  #family: monospace
 
-    # The `style` can be specified to pick a specific face.
-    #style: Bold
+  # The `style` can be specified to pick a specific face.
+  #style: Bold
 
   # Italic font face
   #italic:
-    # Font family
-    #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
+  # Font family
+  #
+  # If the italic family is not specified, it will fall back to the
+  # value specified for the normal font.
+  #family: monospace
 
-    # The `style` can be specified to pick a specific face.
-    #style: Italic
+  # The `style` can be specified to pick a specific face.
+  #style: Italic
 
   # Point size
   size: 14.0
@@ -157,10 +157,11 @@ font:
   use_thin_strokes: true
 
 # Display the time it takes to redraw each frame.
-render_timer: false
+debug:
+  render_timer: false
 
-# Keep the log file after quitting Alacritty.
-persistent_logging: false
+  # Keep the log file after quitting Alacritty.
+  persistent_logging: false
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
@@ -169,32 +170,32 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x1b2b34'
-    foreground: '0xd8dee9'
+    background: "0x1b2b34"
+    foreground: "0xd8dee9"
 
   cursor:
-    text: '0x1b2b34'
-    cursor: '0xffffff'
+    text: "0x1b2b34"
+    cursor: "0xffffff"
 
   normal:
-    black:  '0x343d46'
-    red:    '0xEC5f67'
-    green:  '0x99C794'
-    yellow: '0xFAC863'
-    blue:   '0x6699cc'
-    magenta: '0xc594c5'
-    cyan:    '0x5fb3b3'
-    white:   '0xd8dee9'
+    black: "0x343d46"
+    red: "0xEC5f67"
+    green: "0x99C794"
+    yellow: "0xFAC863"
+    blue: "0x6699cc"
+    magenta: "0xc594c5"
+    cyan: "0x5fb3b3"
+    white: "0xd8dee9"
 
   bright:
-    black:   '0x343d46'
-    red:     '0xEC5f67'
-    green:   '0x99C794'
-    yellow:  '0xFAC863'
-    blue:    '0x6699cc'
-    magenta: '0xc594c5'
-    cyan:    '0x5fb3b3'
-    white:   '0xd8dee9'
+    black: "0x343d46"
+    red: "0xEC5f67"
+    green: "0x99C794"
+    yellow: "0xFAC863"
+    blue: "0x6699cc"
+    magenta: "0xc594c5"
+    cyan: "0x5fb3b3"
+    white: "0xd8dee9"
 
     # Bright and dim foreground colors
     #
@@ -264,7 +265,7 @@ colors:
 visual_bell:
   animation: EaseOutExpo
   duration: 0
-  color: '0xffffff'
+  color: "0xffffff"
 
 # Background opacity
 #
@@ -323,7 +324,7 @@ mouse:
     modifiers: None
 
 selection:
-  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
 
   # When set to `true`, selected text will be copied to the primary clipboard.
   save_to_clipboard: false
@@ -480,9 +481,9 @@ key_bindings:
   #- { key: Q,      mods: Command, action: Quit             }
   #- { key: W,      mods: Command, action: Quit             }
   # - { key: N,        mods: Command, command: { program: "open", args: ["-na", "/Applications/Alacritty.app"] } }
-  - { key: N,        mods: Command, action: SpawnNewInstance }
-  - { key: Paste,                   action: Paste                            }
-  - { key: Copy,                    action: Copy                             }
+  - { key: N, mods: Command, action: SpawnNewInstance }
+  - { key: Paste, action: Paste }
+  - { key: Copy, action: Copy }
   # - { key: L,        mods: Control, action: ClearLogNotice                   }
   # - { key: L,        mods: Control, chars: "\x0c"                            }
   # - { key: Home,                    chars: "\x1bOH",        mode: AppCursor  }
