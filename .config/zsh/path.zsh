@@ -11,4 +11,4 @@ export PATH=$HOME/bin:$PATH
 export VIMPATH=$HOME/.config/nvim/init.vim
 export ZSHRC=$HOME/.zshrc
 export ALARC=$HOME/.config/alacritty/alacritty.yml
-
+export TMUXC=$HOME/.tmux.conf
