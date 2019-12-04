@@ -48,7 +48,7 @@ echo "Set Initial Key Repeat"
 defaults write -g InitialKeyRepeat -int 12
 
 echo "Set key repeat"
-defaults write -g KeyRepeat 1
+defaults write -g KeyRepeat -int 1
 
 echo "Automatically quit printer app once the print jobs complete"
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
