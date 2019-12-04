@@ -12,6 +12,7 @@ export ZSHENV=$ZSH_CUSTOM/.zshenv
 source $ZSHPATH
 source $ZSHFUNCTIONS
 source $ZSHALIAS
+source $ZSHENV
 # Ansible Vault
 export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.ansible_vault.txt
 
@@ -37,6 +38,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -72,9 +74,9 @@ function tf_prompt_info() {
 PROMPT='%F{green}%* $(tf_prompt_info) '$PROMPT
 
 # Syntax Highlighting
-source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # added by travis gem
-[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
+# [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C $HOME/go/bin/terraform terraform
