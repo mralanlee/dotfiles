@@ -29,11 +29,11 @@ ZSH_THEME="hyperzsh"
 eval "$(fasd --init auto)"
 
 plugins=(
-  git,
-  zsh-autosuggestions,
-  terraform,
-  kubectl,
-  zsh-syntax-highlighting
+  git
+  docker
+  docker-compose
+  terraform
+  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -71,7 +71,7 @@ function tf_prompt_info() {
   fi
 }
 
-PROMPT='%F{green}%* $(tf_prompt_info) '$PROMPT
+PROMPT=' %F{green}%* $(tf_prompt_info) '$PROMPT
 
 # Syntax Highlighting
 # source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -90,3 +90,7 @@ export YVM_DIR=/usr/local/opt/yvm
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+PS1='$(kube_ps1)'$PS1
+
