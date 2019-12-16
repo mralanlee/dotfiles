@@ -143,7 +143,6 @@ let g:ale_linters={
 \ 'sh': ['language_server'],
 \ 'terraform': ['fmt'],
 \ 'xml': ['xmllint'],
-\ 'yaml': ['prettier'],
 \}
 
 let g:ale_fixers={
@@ -170,6 +169,7 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-prettier',
   \ 'coc-json',
+  \ 'coc-yaml',
   \ ]
 
 " netrw
@@ -328,7 +328,7 @@ let g:neomake_jsx_eslint_maker={
     \ '%W%f: line %l\, col %c\, Warning - %m'
     \ }
 let g:neomake_jsx_enabled_makers=['eslint']
-let g:neomake_yaml_enabled_makers=['yamllint']
+" let g:neomake_yaml_enabled_makers=['yamllint']
 au! BufWritePost * Neomake
 
 au FileType make setlocal noexpandtab sw=4 ts=4 sts=4
