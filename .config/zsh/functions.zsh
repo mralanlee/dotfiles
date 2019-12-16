@@ -1,6 +1,6 @@
 # git pull upstream on branch
 function gpu {
-  BRANCH=$(git branch | grep \* | cut -d ' ' -f2)
+  BRANCH="$(git branch | grep \* | cut -d ' ' -f2)"
   git push --set-upstream origin $BRANCH
 }
 

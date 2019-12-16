@@ -32,3 +32,7 @@ alias kg='kubectl get'
 alias kgpo='kubectl get pod'
 alias krm='kubectl delete'
 alias krmf='kubectl delete -f'
+alias kx='kubectx'
+
+## kubernetes watch pods
+alias kwp='watch -n 1 kubectl get pods -o wide'
