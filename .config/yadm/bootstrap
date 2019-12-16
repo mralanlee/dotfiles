@@ -66,7 +66,7 @@ echo "Disable smart dashes"
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 echo "Set Mode to Dark"
-defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark" 
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
 if command -v nvim >/dev/null 2>&1; then
   echo "Bootstraping Neovim"
