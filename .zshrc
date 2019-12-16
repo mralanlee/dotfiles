@@ -1,3 +1,6 @@
+# tmux auto start
+export ZSH_TMUX_AUTOSTART=true
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -23,17 +26,18 @@ export GOPROXY="direct"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="hyperzsh"
+# ZSH_THEME=""
+# rip hyperzsh
 
 # fasd
 eval "$(fasd --init auto)"
 
 plugins=(
-  git
   docker
   docker-compose
   terraform
   kubectl
+  tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -61,17 +65,17 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Terraform
-function tf_prompt_info() {
-  # dont show 'default' workspace in home dir
-  [[ "$PWD" == ~ ]] && return
-  # check if in terraform dir
-  if [ -d .terraform ]; then
-    workspace=$(terraform workspace show 2> /dev/null) || return
-    echo "[${workspace}]"
-  fi
-}
+# function tf_prompt_info() {
+#   # dont show 'default' workspace in home dir
+#   [[ "$PWD" == ~ ]] && return
+#   # check if in terraform dir
+#   if [ -d .terraform ]; then
+#     workspace=$(terraform workspace show 2> /dev/null) || return
+#     echo "[${workspace}]"
+#   fi
+# }
 
-PROMPT=' %F{green}%* $(tf_prompt_info) '$PROMPT
+# PROMPT='%F{green}%* $(tf_prompt_info) '$PROMPT
 
 # Syntax Highlighting
 # source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -91,6 +95,15 @@ export YVM_DIR=/usr/local/opt/yvm
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-PS1='$(kube_ps1)'$PS1
+# source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+# PS1='$(kube_ps1)'$PS1
+
+# pure
+autoload -U promptinit; promptinit
+
+zstyle ':prompt:pure:path' color blue
+zstyle ':prompt:pure:git:branch' color magenta
+zstyle ':prompt:pure:prompt' color magneta 
+zstyle ':prompt:pure:prompt:*' color cyan
+prompt pure
 
