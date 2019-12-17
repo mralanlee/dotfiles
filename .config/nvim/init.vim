@@ -185,7 +185,7 @@ let g:fzf_tags_command='fd | ctags --links=no -L-'
 
 let $FZF_PREVIEW_COMMAND='bat --color=always {}'
 let $FZF_DEFAULT_OPTS='--layout=reverse'
-let $BAT_THEME='Sublime Snazzy'
+let $BAT_THEME='ansi-dark'
 
 command! -bang -nargs=? -complete=dir GFiles
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': '--prompt ""'}, 'right:70%'), <bang>0)
