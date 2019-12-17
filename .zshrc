@@ -59,6 +59,7 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Kubernetes
 if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
+  complete -F __start_kubectl k
 fi
 
 # FZF
@@ -68,11 +69,7 @@ fi
 # function tf_prompt_info() {
 #   # dont show 'default' workspace in home dir
 #   [[ "$PWD" == ~ ]] && return
-#   # check if in terraform dir
-#   if [ -d .terraform ]; then
-#     workspace=$(terraform workspace show 2> /dev/null) || return
-#     echo "[${workspace}]"
-#   fi
+#   # check if in terraform dir if [ -d .terraform ]; then workspace=$(terraform workspace show 2> /dev/null) || return echo "[${workspace}]" fi
 # }
 
 # PROMPT='%F{green}%* $(tf_prompt_info) '$PROMPT
