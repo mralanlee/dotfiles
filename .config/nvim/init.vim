@@ -34,6 +34,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'eval `fnm env` & cd app & npm install' }
 Plug 'voldikss/vim-floaterm'
 Plug 'tpope/vim-vinegar'
+Plug 'christoomey/vim-tmux-navigator'
 
 " code
 Plug 'fatih/vim-go'
