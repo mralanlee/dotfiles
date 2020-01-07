@@ -12,6 +12,8 @@
 	<integer>1</integer>
 	<key>AppleWindowTabbingMode</key>
 	<string>manual</string>
+	<key>AutoHideTmuxClientSession</key>
+	<false/>
 	<key>CopySelection</key>
 	<true/>
 	<key>Custom Color Presets</key>
@@ -1053,7 +1055,7 @@
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
 	<string>880 741 799 448 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 1089 665 488 0 0 3840 1577 </string>
+	<string>0 1089 650 488 0 0 3840 1577 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1923 0 1913 1577 0 0 3840 1577 </string>
 	<key>New Bookmarks</key>
@@ -1926,16 +1928,16 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {2048, 1152}}</string>
+		<string>{{0, 0}, {3840, 1600}}</string>
 		<key>topLeft</key>
-		<string>{955, 859}</string>
+		<string>{269, 595}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
 	<string>265A42DE-FC34-4F7E-BE85-E3CB9BF533BC</string>
 	<key>NoSyncLastTipTime</key>
-	<real>597776616.08610904</real>
+	<real>598212321.28914297</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>12</integer>
+	<integer>22</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>597776253.04406703</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
@@ -2682,6 +2684,7 @@
 	<array>
 		<string>000</string>
 		<string>0000</string>
+		<string>0001</string>
 	</array>
 	<key>OpenTmuxWindowsIn</key>
 	<integer>0</integer>
@@ -2733,7 +2736,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-12-10T16:57:35Z</date>
+	<date>2019-12-16T18:05:21Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
