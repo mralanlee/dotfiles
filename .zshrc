@@ -37,7 +37,6 @@ plugins=(
   docker-compose
   terraform
   kubectl
-  tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -62,6 +61,9 @@ if [ $commands[kubectl] ]; then
   complete -F __start_kubectl k
 fi
 
+# stern
+source <(stern --completion=zsh)
+
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -80,7 +82,7 @@ fi
 # [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C $HOME/go/bin/terraform terraform
+complete -o nospace -C /usr/local/bin/terraform terraform
 
 # fnm
 export PATH=$HOME/.fnm:$PATH
@@ -104,3 +106,5 @@ zstyle ':prompt:pure:prompt' color magneta
 zstyle ':prompt:pure:prompt:*' color cyan
 prompt pure
 
+
+complete -o nospace -C /usr/local/Cellar/tfenv/1.0.2/versions/0.11.13/terraform terraform
