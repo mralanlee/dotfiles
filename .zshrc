@@ -2,7 +2,8 @@
 export ZSH_TMUX_AUTOSTART=true
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # Modular conifg setup
 export ZSH_CUSTOM=$HOME/.config/zsh
@@ -102,7 +103,7 @@ autoload -U promptinit; promptinit
 
 zstyle ':prompt:pure:path' color blue
 zstyle ':prompt:pure:git:branch' color magenta
-zstyle ':prompt:pure:prompt' color magneta 
+zstyle ':prompt:pure:prompt' color magneta
 zstyle ':prompt:pure:prompt:*' color cyan
 prompt pure
 
