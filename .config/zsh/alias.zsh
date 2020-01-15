@@ -2,6 +2,7 @@ alias pro='cd ~/projects'
 
 # aliases for git (though I should be using git aliases)
 alias gco='git checkout'
+alias gco='git for-each-ref --format="%(refname:short)" refs/heads | fzf | xargs git checkout'
 alias gc='git commit'
 alias ga='git add'
 alias gaa='git add .'
