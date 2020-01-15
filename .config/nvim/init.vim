@@ -9,8 +9,8 @@ endif
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/dist/*
 
-let g:python_host_prog=expand('$PYENV_ROOT/versions/$PYENV2_NAME/bin/python')
-let g:python3_host_prog=expand('$PYENV_ROOT/versions/$PYENV3_NAME/bin/python')
+let g:python_host_prog=expand('/usr/local/bin/python')
+let g:python3_host_prog=expand('/usr/local/bin/python3')
 
 "set rtp+=~/.skim
 
@@ -120,6 +120,7 @@ set tabstop=2
 set conceallevel=0
 set undolevels=100
 set nowrap
+set updatetime=300
 
 set undofile
 set undodir=~/.config/nvim/undodir " Maintain undo history between sessions
@@ -127,30 +128,32 @@ set undodir=~/.config/nvim/undodir " Maintain undo history between sessions
 "ale
 let g:ale_linters_explicit=1
 let g:ale_fix_on_save=1
-let g:ale_linters={
-\ 'css': ['prettier'],
-\ 'c': ['clangtidy'],
-\ 'cpp': ['clangtidy', 'cppcheck'],
-\ 'go': ['gopls'],
-\ 'graphql': ['prettier'],
-\ 'html': ['prettier'],
-\ 'javascript': ['eslint', 'prettier'],
-\ 'python': ['pylint'],
-\ 'json': ['prettier'],
-\ 'less': ['prettier'],
-\ 'markdown': ['prettier'],
-\ 'rust': ['rustfmt'],
-\ 'scss': ['prettier'],
-\ 'sh': ['language_server'],
-\ 'terraform': ['fmt'],
-\ 'xml': ['xmllint'],
-\}
+" let g:ale_linters={
+" \ 'css': ['prettier'],
+" \ 'c': ['clangtidy'],
+" \ 'cpp': ['clangtidy', 'cppcheck'],
+" \ 'go': ['gopls'],
+" \ 'graphql': ['prettier'],
+" \ 'html': ['prettier'],
+" \ 'javascript': ['eslint', 'prettier'],
+" \ 'typescript': ['eslint', 'prettier'],
+" \ 'python': ['pylint'],
+" \ 'json': ['prettier'],
+" \ 'less': ['prettier'],
+" \ 'markdown': ['prettier'],
+" \ 'rust': ['rustfmt'],
+" \ 'scss': ['prettier'],
+" \ 'sh': ['language_server'],
+" \ 'terraform': ['fmt'],
+" \ 'xml': ['xmllint'],
+" \}
 
 let g:ale_fixers={
 \ 'css': ['prettier'],
 \ 'graphql': ['prettier'],
 \ 'html': ['prettier'],
 \ 'javascript': ['prettier', 'eslint'],
+\ 'typescript': ['eslint'],
 \ 'json': ['prettier'],
 \ 'python': ['generic_python'],
 \ 'less': ['prettier'],
@@ -163,15 +166,15 @@ let g:ale_fixers={
 let g:floaterm_position='center'
 
 " coc
-let g:coc_global_extensions = [
-  \ 'coc-snippets',
-  \ 'coc-pairs',
-  \ 'coc-eslint',
-  \ 'coc-tsserver',
-  \ 'coc-prettier',
-  \ 'coc-json',
-  \ 'coc-yaml',
-  \ ]
+" let g:coc_global_extensions = [
+"   \ 'coc-snippets',
+"   \ 'coc-pairs',
+"   \ 'coc-eslint',
+"   \ 'coc-tsserver',
+"   \ 'coc-prettier',
+"   \ 'coc-json',
+"   \ 'coc-yaml',
+"   \ ]
 
 " netrw
 let g:netrw_liststyle=3
@@ -300,9 +303,9 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 
-command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+command! -nargs=0 Prettier :call CocActionAsync('runCommand', 'prettier.formatFile')
 " Use `:Format` for format current buffer
-command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Format :call CocActionAsync('format')
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -310,9 +313,11 @@ function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    call CocActionAsync('doHover')
   endif
 endfunction
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 if executable('./node_modules/.bin/eslint')
   let g:neomake_javascript_eslint_exe='./node_modules/.bin/eslint'
