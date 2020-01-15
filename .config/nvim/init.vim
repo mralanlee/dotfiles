@@ -23,7 +23,7 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'neomake/neomake'
 
 " utils
-Plug 'junegunn/fzf', { 'build': './install --all', 'merged': 0 }
+Plug 'junegunn/fzd', { 'build': './install --all', 'merged': 0 }
 Plug 'junegunn/fzf.vim', { 'depends': 'fzf' } "fzf
 "Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
 Plug 'w0rp/ale'                       "lint/fix
@@ -35,6 +35,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'eval `fnm env` & cd app & npm inst
 Plug 'voldikss/vim-floaterm'
 Plug 'tpope/vim-vinegar'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'preservim/nerdtree'
 
 " code
 Plug 'fatih/vim-go'
@@ -57,7 +58,6 @@ Plug 'jparise/vim-graphql'
 " Plug 'Valloric/MatchTagAlways'
 Plug 'cohama/lexima.vim'
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
-Plug 'Glench/Vim-Jinja2-Syntax'
 
 " format
 Plug 'ntpeters/vim-better-whitespace'
@@ -75,10 +75,8 @@ Plug 'morhetz/gruvbox'
 call plug#end()
 
 set background=dark
+" set t_Co=256
 colorscheme OceanicNext
-" colorscheme spacecamp
-" colorscheme monokai_pro
-" colorscheme gruvbox
 filetype plugin indent on
 syntax enable
 highlight Pmenu guibg=#161616
@@ -180,6 +178,15 @@ let g:floaterm_position='center'
 let g:netrw_liststyle=3
 let g:netrw_banner=0
 let g:netrw_winsize=15
+
+"NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+" close if it's the only tab open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+map <C-n> :NERDTreeToggle<CR>
 
 "fzf
 let g:fzf_buffers_jump=1
