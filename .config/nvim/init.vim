@@ -17,13 +17,13 @@ let g:python3_host_prog=expand('/usr/local/bin/python3')
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/denite.nvim'
+" Plug 'Shougo/denite.nvim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
 Plug 'neomake/neomake'
 
 " utils
-Plug 'junegunn/fzd', { 'build': './install --all', 'merged': 0 }
+Plug 'junegunn/fzf', { 'build': './install --all', 'merged': 0 }
 Plug 'junegunn/fzf.vim', { 'depends': 'fzf' } "fzf
 "Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
 Plug 'w0rp/ale'                       "lint/fix
@@ -43,7 +43,6 @@ Plug 'sebdah/vim-delve'
 Plug 'rust-lang/rust.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
-Plug 'chr4/nginx.vim'
 Plug 'tpope/vim-commentary'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mattn/emmet-vim', { 'on_ft': ['javascript', 'javascript.jsx', 'html', 'xml'] }
@@ -72,11 +71,15 @@ Plug 'jaredgorski/SpaceCamp'
 Plug 'mhartington/oceanic-next'
 " Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 set background=dark
 " set t_Co=256
 colorscheme OceanicNext
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+
 filetype plugin indent on
 syntax enable
 highlight Pmenu guibg=#161616
@@ -174,6 +177,13 @@ let g:floaterm_position='center'
 "   \ 'coc-yaml',
 "   \ ]
 
+" airline
+let g:airline_theme='oceanicnext'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 " netrw
 let g:netrw_liststyle=3
 let g:netrw_banner=0
