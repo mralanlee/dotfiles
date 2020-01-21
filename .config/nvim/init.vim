@@ -17,7 +17,7 @@ let g:python3_host_prog=expand('/usr/local/bin/python3')
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'Shougo/deoplete.nvim'
-" Plug 'Shougo/denite.nvim'
+Plug 'Shougo/denite.nvim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet.vim'
 Plug 'neomake/neomake'
@@ -57,6 +57,7 @@ Plug 'jparise/vim-graphql'
 " Plug 'Valloric/MatchTagAlways'
 Plug 'cohama/lexima.vim'
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
+Plug 'HerringtonDarkholme/yats.vim'
 
 " format
 Plug 'ntpeters/vim-better-whitespace'
@@ -87,6 +88,7 @@ highlight Pmenu guibg=#161616
 set termguicolors
 " disable mouse
 set mouse=r
+set guifont=Hack\ Code\ Nerd\ Font:h11
 set encoding=utf8
 set hidden
 set nomodeline
@@ -136,12 +138,7 @@ let g:ale_fix_on_save=1
 " \ 'go': ['gopls'],
 " \ 'graphql': ['prettier'],
 " \ 'html': ['prettier'],
-" \ 'javascript': ['eslint', 'prettier'],
-" \ 'typescript': ['eslint', 'prettier'],
-" \ 'python': ['pylint'],
-" \ 'json': ['prettier'],
-" \ 'less': ['prettier'],
-" \ 'markdown': ['prettier'],
+" \ 'javascript': ['eslint', 'prettier'], \ 'typescript': ['eslint', 'prettier'], \ 'python': ['pylint'], \ 'json': ['prettier'], \ 'less': ['prettier'], \ 'markdown': ['prettier'],
 " \ 'rust': ['rustfmt'],
 " \ 'scss': ['prettier'],
 " \ 'sh': ['language_server'],
@@ -179,8 +176,8 @@ let g:floaterm_position='center'
 
 " airline
 let g:airline_theme='oceanicnext'
+set noshowmode
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -389,6 +386,7 @@ omap f <Plug>Sneak_f
 omap F <Plug>Sneak_F
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>f :GFiles<CR>
+nmap <Leader>Y :PRg<CR>
 nmap <Leader>F :Files<CR>
 nmap <Leader>t :Tags<CR>
 nmap <Leader>m :History<CR>
