@@ -1,0 +1,13 @@
+{
+    "editor.fontFamily": "'Fira Code', Menlo, Monaco, 'Courier New', monospace",
+    "editor.tabSize": 2,
+    "editor.fontLigatures": true,
+    "workbench.colorTheme": "Oceanic Next",
+    "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+    "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
+    "editor.minimap.enabled": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "/usr/local/bin/nvim",
+    "vim.useSystemClipboard": true,
+}
