@@ -36,6 +36,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'tpope/vim-vinegar'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " code
 Plug 'fatih/vim-go'
@@ -131,20 +132,24 @@ set undodir=~/.config/nvim/undodir " Maintain undo history between sessions
 "ale
 let g:ale_linters_explicit=1
 let g:ale_fix_on_save=1
-" let g:ale_linters={
-" \ 'css': ['prettier'],
-" \ 'c': ['clangtidy'],
-" \ 'cpp': ['clangtidy', 'cppcheck'],
-" \ 'go': ['gopls'],
-" \ 'graphql': ['prettier'],
-" \ 'html': ['prettier'],
-" \ 'javascript': ['eslint', 'prettier'], \ 'typescript': ['eslint', 'prettier'], \ 'python': ['pylint'], \ 'json': ['prettier'], \ 'less': ['prettier'], \ 'markdown': ['prettier'],
-" \ 'rust': ['rustfmt'],
-" \ 'scss': ['prettier'],
-" \ 'sh': ['language_server'],
-" \ 'terraform': ['fmt'],
-" \ 'xml': ['xmllint'],
-" \}
+let g:ale_linters={
+\ 'css': ['prettier'],
+\ 'c': ['clangtidy'],
+\ 'cpp': ['clangtidy', 'cppcheck'],
+\ 'go': ['gopls'],
+\ 'graphql': ['prettier'],
+\ 'html': ['prettier'],
+\ 'javascript': ['eslint', 'prettier'],
+\ 'typescript': ['eslint'],
+\ 'python': ['pylint'],
+\ 'json': ['prettier'],
+\ 'markdown': ['prettier'],
+\ 'rust': ['rustfmt'],
+\ 'scss': ['prettier'],
+\ 'sh': ['language_server'],
+\ 'terraform': ['fmt'],
+\ 'xml': ['xmllint'],
+\}
 
 let g:ale_fixers={
 \ 'css': ['prettier'],
@@ -194,6 +199,8 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 map <C-n> :NERDTreeToggle<CR>
+
+let g:NERDTreeShowHidden = 1
 
 "fzf
 let g:fzf_buffers_jump=1
