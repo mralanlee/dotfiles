@@ -89,7 +89,7 @@ highlight Pmenu guibg=#161616
 set termguicolors
 " disable mouse
 set mouse=r
-set guifont=Hack\ Code\ Nerd\ Font:h11
+set guifont=FuraCode\ Regular\ Nerd\ Font:h11
 set encoding=utf8
 set hidden
 set nomodeline
@@ -155,7 +155,7 @@ let g:ale_fixers={
 \ 'css': ['prettier'],
 \ 'graphql': ['prettier'],
 \ 'html': ['prettier'],
-\ 'javascript': ['prettier', 'eslint'],
+\ 'javascript': ['eslint'],
 \ 'typescript': ['eslint'],
 \ 'json': ['prettier'],
 \ 'python': ['generic_python'],
@@ -201,6 +201,18 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 map <C-n> :NERDTreeToggle<CR>
 
 let g:NERDTreeShowHidden = 1
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 
 "fzf
 let g:fzf_buffers_jump=1
