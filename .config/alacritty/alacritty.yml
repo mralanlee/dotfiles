@@ -82,7 +82,7 @@ tabspaces: 4
 # Font configuration (changes require restart)
 font:
   normal:
-    family: Fira Code
+    family: FuraCode Nerd Font
 
   bold:
     family: Fira Code
