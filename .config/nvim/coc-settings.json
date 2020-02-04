@@ -1,10 +1,7 @@
 {
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
-    "graphql",
     "html",
-    "javascript",
-    "javascript.jsx",
     "python",
     "json",
     "less",
@@ -12,6 +9,7 @@
     "scss",
     "yaml"
   ],
+  "eslint.autoFixOnSave": true,
   "languageserver": {
     "bash": {
       "command": "bash-language-server",
@@ -27,7 +25,10 @@
     "golang": {
       "command": "gopls",
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"]
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
     }
   },
   "snippets.extends": {
