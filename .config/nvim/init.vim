@@ -26,7 +26,7 @@ Plug 'neomake/neomake'
 Plug 'junegunn/fzf', { 'build': './install --all', 'merged': 0 }
 Plug 'junegunn/fzf.vim', { 'depends': 'fzf' } "fzf
 "Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
-Plug 'w0rp/ale'                       "lint/fix
+" Plug 'w0rp/ale'                       "lint/fix
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
@@ -37,9 +37,10 @@ Plug 'tpope/vim-vinegar'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'liuchengxu/vista.vim'
 
 " code
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'sebdah/vim-delve'
 Plug 'rust-lang/rust.vim'
 Plug 'hashivim/vim-terraform'
@@ -130,40 +131,40 @@ set undofile
 set undodir=~/.config/nvim/undodir " Maintain undo history between sessions
 
 "ale
-let g:ale_linters_explicit=1
-let g:ale_fix_on_save=1
-let g:ale_linters={
-\ 'css': ['prettier'],
-\ 'c': ['clangtidy'],
-\ 'cpp': ['clangtidy', 'cppcheck'],
-\ 'go': ['gopls'],
-\ 'graphql': ['prettier'],
-\ 'html': ['prettier'],
-\ 'javascript': ['eslint', 'prettier'],
-\ 'typescript': ['eslint'],
-\ 'python': ['pylint'],
-\ 'json': ['prettier'],
-\ 'markdown': ['prettier'],
-\ 'rust': ['rustfmt'],
-\ 'scss': ['prettier'],
-\ 'sh': ['language_server'],
-\ 'terraform': ['fmt'],
-\ 'xml': ['xmllint'],
-\}
+" let g:ale_linters_explicit=1
+" let g:ale_fix_on_save=1
+" let g:ale_linters={
+" \ 'css': ['prettier'],
+" \ 'c': ['clangtidy'],
+" \ 'cpp': ['clangtidy', 'cppcheck'],
+" \ 'go': ['gopls'],
+" \ 'graphql': ['prettier'],
+" \ 'html': ['prettier'],
+" \ 'javascript': ['eslint'],
+" \ 'typescript': ['eslint'],
+" \ 'python': ['pylint'],
+" \ 'json': ['prettier'],
+" \ 'markdown': ['prettier'],
+" \ 'rust': ['rustfmt'],
+" \ 'scss': ['prettier'],
+" \ 'sh': ['language_server'],
+" \ 'terraform': ['fmt'],
+" \ 'xml': ['xmllint'],
+" \}
 
-let g:ale_fixers={
-\ 'css': ['prettier'],
-\ 'graphql': ['prettier'],
-\ 'html': ['prettier'],
-\ 'javascript': ['eslint'],
-\ 'typescript': ['eslint'],
-\ 'json': ['prettier'],
-\ 'python': ['generic_python'],
-\ 'less': ['prettier'],
-\ 'markdown': ['prettier'],
-\ 'scss': ['prettier'],
-\ 'yaml': ['prettier'],
-\}
+" let g:ale_fixers={
+" \ 'css': ['prettier'],
+" \ 'graphql': ['prettier'],
+" \ 'html': ['prettier'],
+" \ 'javascript': ['eslint'],
+" \ 'typescript': ['eslint'],
+" \ 'json': ['prettier'],
+" \ 'python': ['pylint'],
+" \ 'less': ['prettier'],
+" \ 'markdown': ['prettier'],
+" \ 'scss': ['prettier'],
+" \ 'yaml': ['prettier'],
+" \}
 
 " floaterm
 let g:floaterm_position='center'
@@ -190,6 +191,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:netrw_liststyle=3
 let g:netrw_banner=0
 let g:netrw_winsize=15
+
 
 "NERDTree
 autocmd StdinReadPre * let s:std_in=1
@@ -234,33 +236,39 @@ command! -bang -nargs=* PRg
 
 
 command! -bang -nargs=* Rg
-  \ call fzf#vim#grep('rg --column --line-number --no-heading --smart-case --color=always '.shellescape(<q-args>),
+  \ call fzf#vim#grep('rg --column --line-number --follow --no-heading --smart-case --color=always '.shellescape(<q-args>),
   \ 1,
   \ fzf#vim#with_preview(),
   \ <bang>0)
+
 
 " fzf floating window
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
 function! FloatingFZF()
-  let buf = nvim_create_buf(v:false, v:true)
-  call setbufvar(buf, '&signcolumn', 'no')
-  let vertical = 1
-  let height = &lines - 3
-  let width = float2nr(&columns - (&columns * 2 / 10))
-  let col = float2nr((&columns - width) / 2)
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': vertical,
-        \ 'col': col,
-        \ 'width': width,
-        \ 'height': height,
-        \ 'style': 'minimal'
-        \ }
+  let width = min([&columns - 4, max([80, &columns - 20])])
+  let height = min([&lines - 4, max([20, &lines - 10])])
+  let top = ((&lines - height) / 2) - 1
+  let left = (&columns - width) / 2
+  let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
 
-  let win = nvim_open_win(buf, v:true, opts)
-  call setwinvar(win, '&relativenumber', 0)
+
+  let top = "╭" . repeat("─", width - 2) . "╮"
+  let mid = "│" . repeat(" ", width - 2) . "│"
+  let bot = "╰" . repeat("─", width - 2) . "╯"
+  let lines = [top] + repeat([mid], height - 2) + [bot]
+  let s:buf = nvim_create_buf(v:false, v:true)
+  call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
+  call nvim_open_win(s:buf, v:true, opts)
+  set winhl=Normal:Floating
+  let opts.row += 1
+  let opts.height -= 2
+  let opts.col += 2
+  let opts.width -= 4
+  call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+  au BufWipeout <buffer> exe 'bw '.s:buf
 endfunction
+
 
 "gitgutter
 let g:gitgutter_enabled=0
@@ -272,6 +280,9 @@ let g:indentLine_enabled=1
 
 let g:gitgutter_enabled=0
 let g:jsx_ext_required=0
+
+" vista
+let g:vista_fzf_preview = ['right:50%']
 
 " Go
 let g:go_fmt_command = "goimports"
@@ -324,6 +335,13 @@ function! s:fzf_statusline()
   setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
 endfunction
 au! User FzfStatusLine call <SID>fzf_statusline()
+
+"vista
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 " coc Tab
 function! s:check_back_space() abort
