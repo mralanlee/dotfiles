@@ -26,6 +26,7 @@ export GO111MODULE=auto
 export GOPROXY="direct"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export EDITOR='nvim'
 
 # ZSH_THEME=""
 # rip hyperzsh
