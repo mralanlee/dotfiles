@@ -283,6 +283,7 @@ let g:jsx_ext_required=0
 
 " vista
 let g:vista_fzf_preview = ['right:50%']
+let g:vista_sidebar_width = 50
 
 " Go
 let g:go_fmt_command = "goimports"
