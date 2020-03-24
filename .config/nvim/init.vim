@@ -38,6 +38,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'liuchengxu/vista.vim'
+Plug 'arzg/vim-rust-syntax-ext'
 
 " code
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -79,7 +80,7 @@ call plug#end()
 
 set background=dark
 " set t_Co=256
-colorscheme OceanicNext
+colorscheme gruvbox
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
 
