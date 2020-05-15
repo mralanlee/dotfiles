@@ -222,7 +222,7 @@ let g:fzf_buffers_jump=1
 let g:fzf_history_dir='~/.local/share/fzf-history'
 let g:fzf_tags_command='fd | ctags --links=no -L-'
 
-let $FZF_PREVIEW_COMMAND='bat --color=always {}'
+let $FZF_PREVIEW_COMMAND='bat --color=always {} --style=numbers'
 let $FZF_DEFAULT_OPTS='--layout=reverse'
 let $BAT_THEME='ansi-dark'
 
