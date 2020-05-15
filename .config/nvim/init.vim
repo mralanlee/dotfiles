@@ -80,7 +80,7 @@ call plug#end()
 
 set background=dark
 " set t_Co=256
-colorscheme gruvbox
+colorscheme OceanicNext
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
 
