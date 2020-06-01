@@ -35,5 +35,8 @@
     "cpp": ["c"],
     "javascriptreact": ["javascript"]
   },
+  "yaml.schemas": {
+    "kubernetes": "/*.yaml"
+  },
   "javascript.suggestionActions.enabled": false
 }
