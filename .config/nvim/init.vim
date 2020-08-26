@@ -39,6 +39,7 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'liuchengxu/vista.vim'
 Plug 'arzg/vim-rust-syntax-ext'
+Plug 'ruanyl/vim-gh-line'
 
 " code
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
