@@ -22,7 +22,7 @@ export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.ansible_vault.txt
 
 ## Language Specific
 # GO
-export GO111MODULE=auto
+export GO111MODULE=on
 export GOPROXY="direct"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
