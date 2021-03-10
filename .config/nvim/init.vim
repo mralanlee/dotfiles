@@ -54,7 +54,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }  " intellisense
+Plug 'neoclide/coc.nvim', { 'branch': 'release'}  " intellisense
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'jparise/vim-graphql'
@@ -62,6 +62,7 @@ Plug 'jparise/vim-graphql'
 Plug 'cohama/lexima.vim'
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'cappyzawa/starlark.vim'
 
 " format
 Plug 'ntpeters/vim-better-whitespace'
@@ -236,13 +237,11 @@ command! -bang -nargs=* PRg
   \ fzf#vim#with_preview({'dir': system('git rev-parse --show-toplevel 2> /dev/null')[:-2]}),
   \ <bang>0)
 
-
 command! -bang -nargs=* Rg
-  \ call fzf#vim#grep('rg --column --line-number --follow --no-heading --smart-case --color=always '.shellescape(<q-args>),
+  \ call fzf#vim#grep('rg --column --line-number --no-heading --smart-case --color=always '.shellescape(<q-args>),
   \ 1,
   \ fzf#vim#with_preview(),
   \ <bang>0)
-
 
 " fzf floating window
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
@@ -373,6 +372,7 @@ endfunction
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 if executable('./node_modules/.bin/eslint')
   let g:neomake_javascript_eslint_exe='./node_modules/.bin/eslint'
 endif

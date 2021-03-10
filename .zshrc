@@ -4,7 +4,8 @@ export ZSH_TMUX_AUTOSTART=true
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-
+export PATH=$PATH:$GOPATH/bin
+export PATH="$PATH:$HOME/.local/bin"
 # Modular conifg setup
 export ZSH_CUSTOM=$HOME/.config/zsh
 export ZSHFUNCTIONS=$HOME/.config/zsh/functions.zsh
