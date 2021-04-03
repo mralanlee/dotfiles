@@ -444,4 +444,5 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap _ <C-w>_
 
+autocmd BufRead * setlocal colorcolumn=0
 filetype plugin indent on
