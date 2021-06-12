@@ -1,11 +1,11 @@
 [user]
 	name = Alan Lee
-	email = alan@coil.com
+	email = alanleunglee@gmail.com.com
 [color]
   ui = true
 [core]
   editor = nvim
-	excludesfile = /Users/alalee/.gitignore_global
+	excludesfile = /Users/alan/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
