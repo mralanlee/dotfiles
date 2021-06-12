@@ -4,6 +4,7 @@ export ZSH_TMUX_AUTOSTART=true
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH="$PATH:$HOME/.local/bin"
 # Modular conifg setup
@@ -39,7 +40,7 @@ plugins=(
   docker
   docker-compose
   terraform
-  kubectl
+  deno
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -101,13 +102,20 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # PS1='$(kube_ps1)'$PS1
 
 # pure
-autoload -U promptinit; promptinit
+# fpath+=$HOME/.zsh/pure
+# autoload -U promptinit; promptinit
 
-zstyle ':prompt:pure:path' color blue
-zstyle ':prompt:pure:git:branch' color magenta
-zstyle ':prompt:pure:prompt' color magneta
-zstyle ':prompt:pure:prompt:*' color cyan
-prompt pure
+# zstyle ':prompt:pure:path' color blue
+# zstyle ':prompt:pure:git:branch' color magenta
+# zstyle ':prompt:pure:prompt' color magneta
+# zstyle ':prompt:pure:prompt:*' color cyan
+# prompt pure
 
-
+eval "$(starship init zsh)"
 complete -o nospace -C /usr/local/Cellar/tfenv/1.0.2/versions/0.11.13/terraform terraform
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/alan/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/alan/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/alan/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/alan/google-cloud-sdk/completion.zsh.inc'; fi
