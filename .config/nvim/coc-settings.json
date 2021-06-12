@@ -7,7 +7,8 @@
     "less",
     "Markdown",
     "scss",
-    "yaml"
+    "yaml",
+    "go"
   ],
   "eslint.autoFixOnSave": true,
   "languageserver": {
@@ -33,7 +34,7 @@
       ]
     },
     "golang": {
-      "command": "gopls",
+      "command": "~/go/bin/gopls",
       "rootPatterns": [
         "go.mod",
         ".vim/",
@@ -44,7 +45,8 @@
         "go"
       ],
       "initializationOptions": {
-        "usePlaceholders": true
+        "usePlaceholders": true,
+        "completeUnimported": true
       }
     },
     "terraform": {

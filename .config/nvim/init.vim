@@ -287,6 +287,10 @@ let g:vista_fzf_preview = ['right:50%']
 let g:vista_sidebar_width = 50
 
 " Go
+let g:go_diagnostics_enabled = 0
+let g:go_metalinter_enabled = []
+let g:go_jump_to_error = 0
+let g:go_auto_sameids = 0
 let g:go_fmt_command = "goimports"
 let g:go_term_mode="split"
 let g:go_list_height=0
