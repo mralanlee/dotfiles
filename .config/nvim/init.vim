@@ -63,7 +63,7 @@ Plug 'cohama/lexima.vim'
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'cappyzawa/starlark.vim'
-
+Plug 'cespare/vim-toml'
 " format
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'andymass/vim-matchup'
