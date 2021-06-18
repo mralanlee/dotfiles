@@ -110,6 +110,9 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # zstyle ':prompt:pure:prompt' color magneta
 # zstyle ':prompt:pure:prompt:*' color cyan
 # prompt pure
+fpath=(~/.zsh $fpath)
+autoload -Uz compinit
+compinit -u
 
 eval "$(starship init zsh)"
 complete -o nospace -C /usr/local/Cellar/tfenv/1.0.2/versions/0.11.13/terraform terraform
