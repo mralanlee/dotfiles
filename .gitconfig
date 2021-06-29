@@ -1,21 +1,15 @@
 [user]
-	name = Alan Lee
-	email = alanleunglee@gmail.com
+  name = Alan Lee
+  email = alanleunglee@gmail.com
 [color]
   ui = true
 [core]
   editor = nvim
-	excludesfile = /Users/alan/.gitignore_global
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  excludesfile = /Users/alan/.gitignore_global
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
