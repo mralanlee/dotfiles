@@ -122,3 +122,8 @@ if [ -f '/Users/alan/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/alan/googl
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/alan/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/alan/google-cloud-sdk/completion.zsh.inc'; fi
+
+. /usr/local/opt/asdf/asdf.sh
+
+export PKG_CONFIG_PATH="/usr/local/opt/libpq/lib/pkgconfig"
+export PATH="/usr/local/opt/libpq/bin:$PATH"
