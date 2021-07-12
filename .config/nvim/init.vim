@@ -134,6 +134,7 @@ set updatetime=300
 set undofile
 set undodir=~/.config/nvim/undodir " Maintain undo history between sessions
 
+" Telescope
 lua << EOF
 require('telescope').setup{
   defaults = {
