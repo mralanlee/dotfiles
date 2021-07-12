@@ -18,8 +18,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/denite.nvim'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/neosnippet.vim'
 Plug 'neomake/neomake'
 
 " utils
@@ -40,6 +38,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'liuchengxu/vista.vim'
 Plug 'arzg/vim-rust-syntax-ext'
 Plug 'ruanyl/vim-gh-line'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " code
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -133,6 +134,53 @@ set updatetime=300
 set undofile
 set undodir=~/.config/nvim/undodir " Maintain undo history between sessions
 
+lua << EOF
+require('telescope').setup{
+  defaults = {
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case'
+    },
+    prompt_prefix = "> ",
+    selection_caret = "> ",
+    entry_prefix = "  ",
+    initial_mode = "insert",
+    selection_strategy = "reset",
+    sorting_strategy = "descending",
+    layout_strategy = "horizontal",
+    layout_config = {
+      horizontal = {
+        mirror = false,
+      },
+      vertical = {
+        mirror = false,
+      },
+    },
+    file_sorter =  require'telescope.sorters'.get_fuzzy_file,
+    file_ignore_patterns = {},
+    generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
+    winblend = 0,
+    border = {},
+    borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+    color_devicons = true,
+    use_less = true,
+    path_display = {},
+    set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
+    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
+    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
+    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+
+    -- Developer configurations: Not meant for general override
+    buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
+  }
+}
+EOF
+
 "ale
 " let g:ale_linters_explicit=1
 " let g:ale_fix_on_save=1
@@ -206,7 +254,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 map <C-n> :NERDTreeToggle<CR>
 
 let g:NERDTreeShowHidden = 1
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
@@ -419,9 +467,6 @@ nnoremap <Tab> :bnext!<CR>
 nnoremap <S-Tab> :bprev!<CR><Paste>
 nnoremap <bar> <C-w><bar>
 xnoremap p pgvy
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
 nmap f <Plug>Sneak_f
 nmap F <Plug>Sneak_F
 xmap f <Plug>Sneak_f
@@ -429,16 +474,21 @@ xmap F <Plug>Sneak_F
 omap f <Plug>Sneak_f
 omap F <Plug>Sneak_F
 nmap <Leader>b :Buffers<CR>
-nmap <Leader>f :GFiles<CR>
+" nmap <Leader>f :GFiles<CR>
+nmap <Leader>f <cmd>lua require('telescope.builtin').git_files{}<CR>
 nmap <Leader>Y :PRg<CR>
-nmap <Leader>F :Files<CR>
+" nmap <Leader>F :Files<CR>
+nmap <Leader>F <cmd>lua require('telecope.builtin').find_files{}<CR>
 nmap <Leader>t :Tags<CR>
 nmap <Leader>m :History<CR>
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
-nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
-nnoremap <leader>g :Grepper -tool rg<cr>
-nnoremap <leader>G :Grepper -tool rg -buffers<cr>
+" nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
+nnoremap <leader>g <cmd>Telescope live_grep<cr>
+" nnoremap <leader>g :Grepper -tool rg<cr>
+" nnoremap <leader>g :Grepper -tool rg<cr>
+" nnoremap <leader>G :Grepper -tool rg -buffers<cr>
+" nnoremap <leader>G :Grepper -tool rg -buffers<cr>
 " WINDOWS
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
