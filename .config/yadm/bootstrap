@@ -73,4 +73,7 @@ if command -v nvim >/dev/null 2>&1; then
   nvim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
 fi
 
+echo "Getting TPM"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 echo "Done!"
