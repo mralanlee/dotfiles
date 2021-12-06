@@ -115,7 +115,7 @@ autoload -Uz compinit
 compinit -u
 
 eval "$(starship init zsh)"
-complete -o nospace -C /usr/local/Cellar/tfenv/1.0.2/versions/0.11.13/terraform terraform
+# complete -o nospace -C /usr/local/Cellar/tfenv/1.0.2/versions/0.11.13/terraform terraform
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/alan/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/alan/google-cloud-sdk/path.zsh.inc'; fi
