@@ -41,6 +41,7 @@ Plug 'ruanyl/vim-gh-line'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'mzlogin/vim-markdown-toc'
 
 " code
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
