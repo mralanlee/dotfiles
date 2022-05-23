@@ -17,7 +17,7 @@ if [ "$system_type" = "Darwin" ]; then
 
   if [ -f "$HOME/Brewfile" ]; then
     echo "Updating homebrew bundle"
-    brew bundle --global
+    brew bundle install --global
   fi
 
   if ! command -v mas >/dev/null 2>&1; then
@@ -75,5 +75,8 @@ fi
 
 echo "Getting TPM"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+echo "Installing Fura Mono"
+curl -fLo "Fura Mono Regular Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20Nerd%20Font%20Complete.otf
 
 echo "Done!"
