@@ -7,6 +7,7 @@ export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH="$PATH:$HOME/.local/bin"
+export PATH=$PATH:/opt/homebrew/bin
 # Modular conifg setup
 export ZSH_CUSTOM=$HOME/.config/zsh
 export ZSHFUNCTIONS=$HOME/.config/zsh/functions.zsh
@@ -41,11 +42,15 @@ plugins=(
   docker-compose
   terraform
   deno
+  fzf
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -86,7 +91,7 @@ source <(stern --completion=zsh)
 # [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
+# complete -o nospace -C /usr/local/bin/terraform terraform
 
 # fnm
 export PATH=$HOME/.fnm:$PATH
@@ -114,6 +119,8 @@ fpath=(~/.zsh $fpath)
 autoload -Uz compinit
 compinit -u
 
+[ -f ${HOME}/.fzf.zsh ] && source ~/.fzf.zsh
+
 eval "$(starship init zsh)"
 # complete -o nospace -C /usr/local/Cellar/tfenv/1.0.2/versions/0.11.13/terraform terraform
 
@@ -123,7 +130,10 @@ if [ -f '/Users/alan/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/alan/googl
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/alan/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/alan/google-cloud-sdk/completion.zsh.inc'; fi
 
-. /usr/local/opt/asdf/asdf.sh
-
 export PKG_CONFIG_PATH="/usr/local/opt/libpq/lib/pkgconfig"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+# export ASDF_DIR="$(brew --prefix asdf)"
+# source $ASDF_DIR/asdf.sh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
