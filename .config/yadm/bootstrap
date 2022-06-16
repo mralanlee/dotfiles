@@ -34,39 +34,39 @@ if [ "$system_type" = "Darwin" ]; then
     echo "Setting iTerm preference folder"
     defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.iterm2"
   fi
+
+  echo "Disable default press and hold behavior"
+  defaults write -g ApplePressAndHoldEnabled -bool false
+
+  echo "Set Initial Key Repeat"
+  defaults write -g InitialKeyRepeat -int 12
+
+  echo "Set key repeat"
+  defaults write -g KeyRepeat -int 1
+
+  echo "Automatically quit printer app once the print jobs complete"
+  defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
+  echo "Show hidden files by default"
+  defaults write com.apple.finder AppleShowAllFiles -bool true
+
+  echo "Disable auto-correct"
+  defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+  echo "Disable smart quotes"
+  defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+  echo "Disable smart dashes"
+  defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+  echo "Set Mode to Dark"
+  defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 fi
 
 # Install VimPlug
 echo "Installing VimPlug for Neovim"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-echo "Disable default press and hold behavior"
-defaults write -g ApplePressAndHoldEnabled -bool false
-
-echo "Set Initial Key Repeat"
-defaults write -g InitialKeyRepeat -int 12
-
-echo "Set key repeat"
-defaults write -g KeyRepeat -int 1
-
-echo "Automatically quit printer app once the print jobs complete"
-defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
-
-echo "Show hidden files by default"
-defaults write com.apple.finder AppleShowAllFiles -bool true
-
-echo "Disable auto-correct"
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-
-echo "Disable smart quotes"
-defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
-
-echo "Disable smart dashes"
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
-
-echo "Set Mode to Dark"
-defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
 if command -v nvim >/dev/null 2>&1; then
   echo "Bootstraping Neovim"
