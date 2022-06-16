@@ -43,8 +43,6 @@ plugins=(
   terraform
   deno
   fzf
-  zsh-autosuggestions
-  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -70,9 +68,6 @@ if [ $commands[kubectl] ]; then
   complete -F __start_kubectl k
 fi
 
-# stern
-source <(stern --completion=zsh)
-
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -92,10 +87,6 @@ source <(stern --completion=zsh)
 
 autoload -U +X bashcompinit && bashcompinit
 # complete -o nospace -C /usr/local/bin/terraform terraform
-
-# fnm
-export PATH=$HOME/.fnm:$PATH
-eval `fnm env`
 
 export YVM_DIR=/usr/local/opt/yvm
 [ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
