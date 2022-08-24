@@ -1,0 +1,13 @@
+require('plugins')
+require('keymaps')
+require('opts')
+
+require('configs.global')
+require('configs.bufferline')
+require('configs.mason')
+require('configs.colorizer')
+require('configs.nordic')
+require('configs.lsp-installer')
+require('configs.nvimtree')
+require('configs.telescope')
+require('impatient')
