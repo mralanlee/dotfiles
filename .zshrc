@@ -34,8 +34,8 @@ export EDITOR='nvim'
 # ZSH_THEME=""
 # rip hyperzsh
 
-# fasd
-eval "$(fasd --init auto)"
+#
+eval "$(zoxide init zsh)"
 
 plugins=(
   docker
@@ -126,5 +126,5 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 
 # export ASDF_DIR="$(brew --prefix asdf)"
 # source $ASDF_DIR/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+. $HOME/.asdf/asdf.sh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
