@@ -20,6 +20,8 @@ window:
   #
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
+  opacity: 0.84
+
   dimensions:
     columns: 100
     lines: 80
@@ -321,8 +323,6 @@ bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-window:
-  opacity: 0.84
 
 # Mouse bindings
 #
