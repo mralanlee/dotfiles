@@ -51,7 +51,7 @@ opt.updatetime = 300
 
 -- Maintain undo history between sessions
 opt.undofile = true
-opt.undodir = '~/.config/nvim/undodir'
+opt.undodir = 'undodir'
 o.background = 'dark'
 o.clipboard = 'unnamedplus'
 o.backspace = 'indent,eol,start'
