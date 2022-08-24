@@ -51,7 +51,7 @@ opt.updatetime = 300
 
 -- Maintain undo history between sessions
 opt.undofile = true
-opt.undodir = 'undodir'
+opt.undodir = vim.fn.stdpath('config') .. '/undodir' 
 o.background = 'dark'
 o.clipboard = 'unnamedplus'
 o.backspace = 'indent,eol,start'

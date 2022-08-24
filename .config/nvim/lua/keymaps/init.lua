@@ -1,7 +1,7 @@
 local keymap = vim.api.nvim_set_keymap
 vim.g.mapleader= " "
 
-keymap('n', 'F', ':Telescope find_files<CR>', {})
+keymap('n', 'F', ':Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>', {})
 keymap('n', 'f', ':Telescope git_files<CR>', {})
 keymap('n', 'b', ':Buffers<CR>', {})
 keymap('n', 'g', ':Telescope live_grep<CR>', {})

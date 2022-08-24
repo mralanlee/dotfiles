@@ -11,7 +11,8 @@ vim.g.indentLine_enabled = 1
 vim.g.vista_sidebar_width = 50
 
 -- go
-vim.g.go_diagnostics_enabled = 0
+vim.g.go_bin_path = "$HOME/go/bin"
+vim.g.go_diagnostics_enabled = 1
 vim.g.go_metalinter_enabled = {} 
 vim.g.go_jump_to_error = 0
 vim.g.go_auto_sameids = 0
