@@ -184,6 +184,11 @@ _G.packer_plugins = {
     path = "/home/alan/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["rust.vim"] = {
+    loaded = true,
+    path = "/home/alan/.local/share/nvim/site/pack/packer/start/rust.vim",
+    url = "https://github.com/rust-lang/rust.vim"
+  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/home/alan/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
@@ -199,10 +204,35 @@ _G.packer_plugins = {
     path = "/home/alan/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
   },
+  ["vim-delve"] = {
+    loaded = true,
+    path = "/home/alan/.local/share/nvim/site/pack/packer/start/vim-delve",
+    url = "https://github.com/sebdah/vim-delve"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/alan/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-terraform"] = {
+    loaded = true,
+    path = "/home/alan/.local/share/nvim/site/pack/packer/start/vim-terraform",
+    url = "https://github.com/hashivim/vim-terraform"
+  },
+  ["vim-terraform-completion"] = {
+    loaded = true,
+    path = "/home/alan/.local/share/nvim/site/pack/packer/start/vim-terraform-completion",
+    url = "https://github.com/juliosueiras/vim-terraform-completion"
+  },
   ["vim-tmux-navigator"] = {
     loaded = true,
     path = "/home/alan/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
     url = "https://github.com/christoomey/vim-tmux-navigator"
+  },
+  ["vim-vsnip"] = {
+    loaded = true,
+    path = "/home/alan/.local/share/nvim/site/pack/packer/start/vim-vsnip",
+    url = "https://github.com/hrsh7th/vim-vsnip"
   },
   ["vista.vim"] = {
     loaded = true,

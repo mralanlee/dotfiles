@@ -36,6 +36,12 @@ require('packer').startup {
     use 'tpope/vim-commentary'
     use 'liuchengxu/vista.vim'
 
+    -- code
+    use 'sebdah/vim-delve'
+    use 'rust-lang/rust.vim'
+    use 'hashivim/vim-terraform'
+    use 'juliosueiras/vim-terraform-completion'
+    use 'tpope/vim-fugitive'
     -- visual
     use {
       'akinsho/bufferline.nvim',

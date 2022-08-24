@@ -1,6 +1,6 @@
 require('plugins')
-require('keymaps')
 require('opts')
+require('keymaps')
 
 require('configs.global')
 require('configs.bufferline')
