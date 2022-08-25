@@ -37,6 +37,7 @@ require('packer').startup {
     use 'liuchengxu/vista.vim'
 
     -- code
+    use 'fatih/vim-go'
     use 'sebdah/vim-delve'
     use 'rust-lang/rust.vim'
     use 'hashivim/vim-terraform'
@@ -64,6 +65,7 @@ require('packer').startup {
 
 
     -- utils
+    use 'rcarriga/nvim-notify'
     use 'nvim-treesitter/nvim-treesitter'
     use 'lewis6991/impatient.nvim'
     use 'christoomey/vim-tmux-navigator'

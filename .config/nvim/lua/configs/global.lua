@@ -30,8 +30,13 @@ vim.g.go_info_mode = 'gopls'
 -- rust
 vim.g.rustfmt_autosave = 1
 
-
 -- Terraform
 vim.g.terraform_align = 1
 vim.g.terraform_fmt_on_save = 1
 
+vim.api.nvim_create_autocmd("VimResized", {
+  pattern = '*',
+  callback = function()
+    vim.cmd("wincmd =")
+  end
+})
