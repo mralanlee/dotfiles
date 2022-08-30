@@ -31,6 +31,7 @@ require('packer').startup {
       'lewis6991/gitsigns.nvim',
       requires = { 'nvim-lua/plenary.nvim' },
     }
+    use 'ruanyl/vim-gh-line'
 
     use 'Yggdroot/indentLine'
     use 'tpope/vim-commentary'

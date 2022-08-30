@@ -60,9 +60,3 @@ o.colorcolumn = 1
 o.splitbelow = true
 o.splitright = true
 
-vim.cmd('colorscheme nordic')
-vim.cmd('highlight Normal guibg=none')
-vim.cmd('highlight NvimTreeNormal guibg=none')
--- vim.cmd('highlight TelescopeNormal guibg=none')
--- vim.cmd('highlight TelescopePreviewNormal guibg=none')
--- vim.cmd('highlight TelescopeBorder guibg=none')
