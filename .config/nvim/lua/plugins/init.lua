@@ -44,6 +44,9 @@ require('packer').startup {
     use 'hashivim/vim-terraform'
     use 'juliosueiras/vim-terraform-completion'
     use 'tpope/vim-fugitive'
+    use 'rodjek/vim-puppet'
+    use 'vim-latex/vim-latex'
+    use 'terrastruct/d2-vim'
     -- visual
     use {
       'akinsho/bufferline.nvim',

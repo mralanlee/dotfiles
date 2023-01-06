@@ -83,15 +83,15 @@ scrolling:
 # Font configuration (changes require restart)
 font:
   normal:
-    family: "Monospace"
-    style: Medium 
+    family: "FiraCode Nerd Font"
+    style: Regular 
 
   bold:
-    family: "JetBrains Mono"
+    family: "FiraCode Nerd Font"
     style: Medium
 
   italic:
-    family: "JetBrains Mono"
+    family: "FiraCode Nerd Font"
     style: Medium
   # Normal (roman) font face
   #normal:
@@ -129,7 +129,7 @@ font:
   #style: Italic
 
   # Point size
-  size: 11.0
+  size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.

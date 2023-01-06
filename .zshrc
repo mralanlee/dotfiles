@@ -65,7 +65,7 @@ source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Kubernetes
 if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
-  complete -F __start_kubectl k
+  # complete -F __start_kubectl k
 fi
 
 # FZF
@@ -126,5 +126,6 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 
 # export ASDF_DIR="$(brew --prefix asdf)"
 # source $ASDF_DIR/asdf.sh
-. $HOME/.asdf/asdf.sh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# . $HOME/.asdf/asdf.sh
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
