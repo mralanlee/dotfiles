@@ -1,5 +1,6 @@
 # tmux auto start
 export ZSH_TMUX_AUTOSTART=true
+if [ "$TMUX" = "" ]; then tmux; fi
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
