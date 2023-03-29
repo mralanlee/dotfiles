@@ -27,6 +27,7 @@ return {
       return commentstring_avail and commentstring and { pre_hook = commentstring.create_pre_hook() } or {}
     end,
   },
+  { "ruanyl/vim-gh-line" },
   {
     "akinsho/toggleterm.nvim",
     cmd = { "ToggleTerm", "TermExec" },
