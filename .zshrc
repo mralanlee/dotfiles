@@ -41,6 +41,7 @@ eval "$(zoxide init zsh)"
 plugins=(
   docker
   docker-compose
+  tmux
   terraform
   deno
   fzf
@@ -130,3 +131,4 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 # . $HOME/.asdf/asdf.sh
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 # source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+export PATH=$PATH:/Users/alan/.spicetify
