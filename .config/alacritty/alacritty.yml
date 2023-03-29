@@ -20,8 +20,9 @@ window:
   #
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
-  opacity: 0.9
+  opacity: 0.8
 
+  decorations: "none"
   dimensions:
     columns: 100
     lines: 80
@@ -45,8 +46,7 @@ window:
   #
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
-  #     - buttonless: Title bar, transparent background, but no title bar buttons
-  decorations: none
+  #     - buttonless: Title bar, transparent background, but no title  decorations: none
 
   # When true, alacritty starts maximized.
   # start_maximized: false
@@ -81,7 +81,7 @@ scrolling:
 # tabspaces: 4
 
 import:
-  - ~/.config/alacritty/catppuccin-mocha.yml
+  - ~/.config/alacritty/catppuccin-macchiato.yml
 # Font configuration (changes require restart)
 font:
   normal:
@@ -304,7 +304,7 @@ live_config_reload: true
 enable_experimental_conpty_backend: false
 
 # Send ESC (\x1b) before characters when alt is pressed.
-alt_send_esc: true
+# alt_send_esc: true
 
 # Key bindings
 #
