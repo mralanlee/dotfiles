@@ -12,9 +12,17 @@ if not vim.loop.fs_stat(lazypath) then
  end
  vim.opt.runtimepath:prepend(lazypath)
 
- vim.g.mapleader = "," -- make sure to set `mapleader` before lazy so your mappings are correct
 
- require("lazy").setup("core.plugins", {
+require('core.keymaps')
+require('core.settings')
+
+-- Use a protected call so we don't error out on first use
+local status_ok, lazy = pcall(require, "lazy")
+if not status_ok then
+  return
+end
+
+require("lazy").setup("plugins", {
   -- defaults = { lazy = true },
   install = {
     -- install missing plugins on startup. This doesn't increase startup time.
