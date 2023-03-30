@@ -1,9 +1,7 @@
 return {
   "akinsho/toggleterm.nvim", -- terminal
   config = function()
-    local toggleterm = require("toggleterm")
-
-    toggleterm.setup({
+    require("toggleterm").setup({
       size = 20,
       open_mapping = [[<c-t>]],
       hide_numbers = true,
