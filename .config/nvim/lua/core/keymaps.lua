@@ -13,3 +13,7 @@ vim.keymap.set('n', '<S-Tab>', ':bprev!<CR>', { remap = false })
 
 -- neotree
 keymap('n', '<leader>e', ':Neotree toggle<CR>', {})
+keymap('n', '<leader>E', '<cmd>lua _OPEN_CWD()<CR>', { noremap = true, silent = true })
+
+-- nvim-tree
+-- keymap('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', {})

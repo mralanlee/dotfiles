@@ -11,9 +11,10 @@ global.language_servers = {
   "puppet",
   "pylsp",
   "rust_analyzer",
-  "sqls",
+  "sqlls",
   "texlab",
   "terraformls",
+  "tflint",
   "yamlls",
 }
 
@@ -25,6 +26,7 @@ global.langs = {
   "gitignore",
   "go",
   "graphql",
+  "hcl",
   "javascript",
   "jq",
   "json",

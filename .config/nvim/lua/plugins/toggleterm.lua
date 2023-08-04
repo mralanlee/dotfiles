@@ -1,9 +1,9 @@
 return {
   "akinsho/toggleterm.nvim", -- terminal
   config = function()
-    require("toggleterm").setup({
+    require("toggleterm").setup{
       size = 20,
-      open_mapping = [[<c-t>]],
+      open_mapping = [[<c-\>]],
       hide_numbers = true,
       shade_filetypes = {},
       shade_terminals = true,
@@ -22,7 +22,7 @@ return {
           background = "Normal",
         },
       },
-    })
+    }
 
     local Terminal = require("toggleterm.terminal").Terminal
     local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })

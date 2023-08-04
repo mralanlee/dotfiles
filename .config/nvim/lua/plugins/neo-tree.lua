@@ -152,9 +152,9 @@ return {
       filesystem = {
         filtered_items = {
           visible = false, -- when true, they will just be displayed differently than normal items
-          hide_dotfiles = true,
+          hide_dotfiles = false,
           hide_gitignored = true,
-          hide_hidden = true, -- only works on Windows for hidden files/directories
+          hide_hidden = false, -- only works on Windows for hidden files/directories
           hide_by_name = {
             --"node_modules"
           },
@@ -201,6 +201,7 @@ return {
         }
       },
       buffers = {
+        bind_to_cwd = true,
         follow_current_file = true, -- This will find and focus the file in the active buffer every
         -- time the current file is changed while the tree is open.
         group_empty_dirs = true, -- when true, empty folders will be grouped together
@@ -229,12 +230,24 @@ return {
       },
       event_handlers = {
         {
-          event = "neo_tree_buffer_enter",
-          handler = function(_) vim.opt_local.signcolumn = "auto" end,
+          event = "neo_tree_window_after_open",
+          handler = function(args)
+            if args.position == "left" or args.position == "right" then
+              vim.cmd("wincmd =")
+            end
+          end
         },
+        -- {
+        --   event = "neo_tree_buffer_enter",
+        --   handler = function(_) vim.opt_local.signcolumn = "auto" end,
+        -- },
       },
     })
-
+    function _OPEN_CWD()
+      require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+    end
+  
     vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
   end,
+  
 }

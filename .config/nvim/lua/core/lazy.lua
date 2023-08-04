@@ -15,6 +15,7 @@ if not vim.loop.fs_stat(lazypath) then
 
 require('core.keymaps')
 require('core.settings')
+require('core.autocmd')
 
 -- Use a protected call so we don't error out on first use
 local status_ok, lazy = pcall(require, "lazy")
