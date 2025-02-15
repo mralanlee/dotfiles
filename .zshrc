@@ -129,6 +129,6 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 # export ASDF_DIR="$(brew --prefix asdf)"
 # source $ASDF_DIR/asdf.sh
 # . $HOME/.asdf/asdf.sh
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+# . /opt/homebrew/opt/asdf/libexec/asdf.sh
 # source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PATH=$PATH:/Users/alan/.spicetify
