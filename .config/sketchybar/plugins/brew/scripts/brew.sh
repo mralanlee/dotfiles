@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-source "$HOME/.config/sketchybar/colors.sh"
 source "$HOME/.config/sketchybar/icons.sh"
 source "$HOME/.config/sketchybar/userconfig.sh" # Loads all defined icons
 

@@ -1,4 +1,6 @@
 return {
+  {'hashicorp/sentinel.vim'},
+  { 'hashivim/vim-terraform'},
   { 'fatih/vim-go' },
   { 'sebdah/vim-delve' },
   { 'rust-lang/rust.vim' },

@@ -1,6 +1,7 @@
 return {
-  "jose-elias-alvarez/null-ls.nvim",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
+  "mfussenegger/nvim-lint",
+  linters_by_ft = {
+    markdown = {'vale'},
+    yaml = {'actionlint', 'yamllint'},
   }
 }

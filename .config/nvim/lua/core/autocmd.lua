@@ -14,3 +14,9 @@ autocmd('BufWritePre', {
   end,
   buffer = 0
 })
+
+autocmd("BufWritePre", {
+  callback = function()
+    vim.lsp.buf.format()
+  end
+})

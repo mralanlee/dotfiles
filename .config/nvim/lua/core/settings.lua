@@ -9,11 +9,11 @@ opt.modeline = false
 opt.writebackup = false
 opt.errorbells = false
 opt.joinspaces = false
-opt.swapfile = false 
-opt.foldenable = false 
+opt.swapfile = false
+opt.foldenable = false
 opt.termguicolors = true
 opt.mouse = 'r'
-opt.wrap = false 
+opt.wrap = false
 opt.secure = true
 opt.autoread = true
 opt.hlsearch = true
@@ -23,8 +23,7 @@ opt.smartcase = true
 opt.wildmenu = true
 opt.showcmd = true
 opt.showmatch = true
-opt.showmode = true
-opt.ruler = true
+opt.showmode = true opt.ruler = true
 opt.relativenumber = true
 opt.number = true
 opt.cursorline = true
@@ -54,12 +53,12 @@ opt.updatetime = 300
 
 -- Maintain undo history between sessions
 opt.undofile = true
-opt.undodir = vim.fn.stdpath('config') .. '/undodir' 
+opt.undodir = vim.fn.stdpath('config') .. '/undodir'
 o.background = 'dark'
 o.clipboard = 'unnamedplus'
 o.backspace = 'indent,eol,start'
 o.encoding = 'utf-8'
-o.colorcolumn = 1
+-- o.colorcolumn = 1
 o.splitbelow = true
 o.splitright = true
 
@@ -81,7 +80,7 @@ vim.g.vista_sidebar_width = 50
 -- go
 vim.g.go_bin_path = "$HOME/go/bin"
 vim.g.go_diagnostics_enabled = 1
-vim.g.go_metalinter_enabled = {} 
+vim.g.go_metalinter_enabled = {}
 vim.g.go_jump_to_error = 0
 vim.g.go_auto_sameids = 0
 vim.g.go_fmt_command = "goimports"
@@ -100,13 +99,21 @@ vim.g.rustfmt_autosave = 1
 
 -- Terraform
 vim.g.terraform_align = 1
-vim.g.terraform_fmt_on_save = 1
+vim.g.hcl_align = 1
+-- vim.g.terraform_fmt_on_save = 1
 
 vim.api.nvim_create_autocmd("VimResized", {
   pattern = '*',
   callback = function()
     vim.cmd("wincmd =")
   end
+})
+
+vim.api.nvim_create_autocmd({"BufWritePre"}, {
+  pattern = {"*.tf", "*.tfvars", "*.hcl"},
+  callback = function()
+    vim.lsp.buf.format()
+  end,
 })
 
 -- treesitter

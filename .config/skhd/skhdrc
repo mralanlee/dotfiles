@@ -51,5 +51,13 @@ shift + alt - 5 : yabai -m window --space 5;
 shift + alt - 6 : yabai -m window --space 6;
 shift + alt - 7 : yabai -m window --space 7;
 
+# move monitor
+# shift + cmd - x  : yabai -m window --display last; yabai -m display --focus last
+shift + cmd - p  : yabai -m window --display prev; yabai -m display --focus prev
+shift + cmd - n  : yabai -m window --display next; yabai -m display --focus next
+# ctrl + cmd - 1  : yabai -m window --display 1; yabai -m display --focus 1
+# ctrl + cmd - 2  : yabai -m window --display 2; yabai -m display --focus 2
+# ctrl + cmd - 3  : yabai -m window --display 3; yabai -m display --focus 3
+
 # restart
 ctrl + alt - r : brew services restart yabai

@@ -15,5 +15,11 @@ vim.keymap.set('n', '<S-Tab>', ':bprev!<CR>', { remap = false })
 keymap('n', '<leader>e', ':Neotree toggle<CR>', {})
 keymap('n', '<leader>E', '<cmd>lua _OPEN_CWD()<CR>', { noremap = true, silent = true })
 
+-- keymap('i', '<leader>j', 'copilot#Accept("\\<CR>")', {
+--   expr = true,
+--   replace_keycodes = false
+-- })
+
+-- vim.g.copilot_no_tab_map = true
 -- nvim-tree
 -- keymap('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', {})

@@ -31,7 +31,7 @@ export FZF_CTRL_T_OPTS='--select-1 --exit-0'
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 export FZF_ALT_C_OPTS="--select-1 --exit-0 --preview 'tree -C {} | head -200'"
 export FZF_TMUX=1
-export FZF_TMUX_OPTS='-p 100%,40% -y P'
+export FZF_TMUX_OPTS='-d 40%'
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal

@@ -7,9 +7,9 @@ global.language_servers = {
   "gopls",
   "graphql",
   "jsonls",
-  "tsserver",
+  "ts_ls",
   "puppet",
-  "pylsp",
+  "pyright",
   "rust_analyzer",
   "sqlls",
   "texlab",
@@ -48,15 +48,19 @@ global.langs = {
 
 global.mason_tools = {
   -- Formatter
-  "black",
   "prettier",
   "stylua",
+  "hclfmt",
+  "puppet-editor-services",
+  "black",
   -- Linter
+  "actionlint",
   "eslint_d",
   "shellcheck",
   "tflint",
   "vale",
   "yamllint",
+  "terraform-ls"
   -- DAP
   -- "debugpy",
 }

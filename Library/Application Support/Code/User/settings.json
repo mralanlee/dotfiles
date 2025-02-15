@@ -2,9 +2,10 @@
     "editor.fontFamily": "'Fira Code', Menlo, Monaco, 'Courier New', monospace",
     "editor.tabSize": 2,
     "editor.fontLigatures": true,
-    "workbench.colorTheme": "Oceanic Next",
-    "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
-    "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
+    "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
+    "workbench.iconTheme": "Monokai Pro (Filter Octagon) Icons",
+    // "vscode-neovim.neovimPath": "/opt/homebrew/bin/nvim",
+    "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
     "editor.minimap.enabled": false,
     "diffEditor.ignoreTrimWhitespace": false,
     "vim.enableNeovim": true,
@@ -16,7 +17,7 @@
         "editor.snippetSuggestions": "none",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true,
+            "source.organizeImports": "explicit"
         }
     },
     "gopls": {
@@ -25,5 +26,11 @@
         // Experimental settings
         "completeUnimported": true, // autocomplete unimported packages
         "deepCompletion": true,     // enable deep completion
-    }
+    },
+    "vscode-neovim.highlightGroups.unknownHighlight": "vim",
+    "git.autofetch": true,
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "window.zoomLevel": 1
 }
